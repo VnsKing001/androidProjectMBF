@@ -51,7 +51,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -241,24 +240,24 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                             String maLop = lop.getMaLop();
                             String hinh = ethinh.getText().toString();
                             if (maSv.equals("")) {
-                                Toast.makeText(context, "Bạn cần thêm mã sinh viên", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "You need to add a student code", Toast.LENGTH_LONG).show();
                             } else if (tenSv.equals("")) {
-                                Toast.makeText(context, "Bạn cần thêm tên sinh viên", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "You need to add student name", Toast.LENGTH_LONG).show();
                             } else if (email.equals("")) {
-                                Toast.makeText(context, "Bạn cần thêm email sinh viên", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, "You need more student email", Toast.LENGTH_LONG).show();
                             } else if (hinh.equals("")) {
                                 ethinh.setText("avatamacdinh");
                             } else {
                                 SinhVien sinhVien = new SinhVien(maSv, tenSv, email, hinh, maLop);
                                 //Update vào sql
                                 if (sinhVienDao.update(sinhVien)) {
-                                    Toast.makeText(context, "Sửa thành công!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(context, "Edit success!", Toast.LENGTH_LONG).show();
                                     ds.clear();
                                     ds.addAll(sinhVienDao.getALL());
                                     notifyDataSetChanged();
                                     dialog.dismiss();
                                 } else {
-                                    Toast.makeText(context, "Sửa thất bại!", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(context, "Edit success!", Toast.LENGTH_LONG).show();
 
                                 }
                             }
@@ -317,7 +316,7 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                 Button btnHuy=dialog.findViewById(R.id.btn_no);
                 final ProgressBar progressBar = dialog.findViewById(R.id.progress_loadconfirm);
                 progressBar.setVisibility(View.INVISIBLE);
-                txt_Massage.setText("Bạn có chắc chắn xóa lớp "+ s.getMaSv()+" không ? ");
+                txt_Massage.setText("Are you sure to delete "+ s.getMaSv()+"? ");
                 final SinhVien sinhVien = ds.get(position);
                 btnXoa.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -333,7 +332,7 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                                     ds.clear();
                                     ds.addAll(sinhVienDao.getALL());
                                     notifyDataSetChanged();
-                                    Toast.makeText(context, "Xóa thành công", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Delete success", Toast.LENGTH_SHORT).show();
                                     dialog.dismiss();
                                 }
                             }, 2000);

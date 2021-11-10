@@ -34,7 +34,8 @@
             android:text="STUDENT MANAGER"
             android:textAlignment="center"
             android:textSize="23dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
 
     </LinearLayout>
 
@@ -45,60 +46,40 @@
         android:padding="15dp">
 
         <LinearLayout
-            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearLayout1"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
+
             <TextView
-                android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
                 android:text=" -Review "
-                android:textStyle="bold"
-                android:textSize="24dp" />
+                android:textColor="@color/blue"
+                android:textSize="24dp"
+                android:textStyle="bold" />
 
             <TextView
-                android:textColor="@color/grey2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text=" -Ứng dụng quản lý sinh viên dựa trên asignment môn android cơ bản của cao đẳng FPT Polytechnic Ứng dụng quản lý sinh viên giúp quản lý được:Thông tin sinh viên: Họ tên,email, mã sinh viên, mã lớp, thông tin lớp như mã tên tên lớp Và rất nhiều chức năng hữu ích khác."
+                android:text="@string/review_detail"
+                android:textColor="@color/grey2"
 
                 android:textSize="20dp" />
 
             <TextView
-                android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="- Đăng Nhập"
+                android:text="@string/dang_nhap"
                 android:textAlignment="center"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                tools:ignore="RtlCompat" />
-
-            <TextView
-                android:textColor="@color/grey2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_toRightOf="@id/imageView2"
-                android:text="  +Đăng ký, đăng nhập, đổi mật khẩu, lưu thông tin sinh viên"
-                android:textSize="20dp" />
-
-            <TextView
                 android:textColor="@color/blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_toRightOf="@id/imageView2"
-                android:text="-Quản lý lớp học"
-                android:textAlignment="center"
                 android:textSize="22dp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />
@@ -107,89 +88,110 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:textColor="@color/grey2"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="   + Xem danh sách lớp học trên listview"
+                android:text="@string/dang_nhap_detail"
+                android:textColor="@color/grey2"
                 android:textSize="20dp" />
 
-
             <TextView
-                android:textColor="@color/grey2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="   + Thêm, sửa, xóa lớp"
-                android:textSize="20dp" />
-
-
-            <TextView
-                android:textColor="@color/grey2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_toRightOf="@id/imageView2"
-                android:text="   + Tìm kiếm lớp học theo tên lớp"
-                android:textSize="20dp" />
-
-
-            <TextView
-                android:textColor="@color/grey2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_toRightOf="@id/imageView2"
-                android:text="   + Chọn vào lớp xem được danh sách sinh viên của lớp đó"
-                android:textSize="20dp" />
-
-            <TextView
-                android:textColor="@color/blue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_toRightOf="@id/imageView2"
-                android:text="-Quản lý sinh viên"
+                android:text="@string/quan_li_lop_hoc"
                 android:textAlignment="center"
+                android:textColor="@color/blue"
                 android:textSize="22dp"
                 android:textStyle="bold"
                 tools:ignore="RtlCompat" />
 
             <TextView
-                android:textColor="@color/grey2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="   + Xem danh sách sinh viên trên listview"
+                android:text="@string/xem_danh_sach"
+                android:textColor="@color/grey2"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@id/imageView2"
+                android:text="@string/them_sua_soa_lop"
+                android:textColor="@color/grey2"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@id/imageView2"
+                android:text="@string/tim_lop_hoc"
+                android:textColor="@color/grey2"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@id/imageView2"
+                android:text="@string/chon_lop_hoc"
+                android:textColor="@color/grey2"
                 android:textSize="20dp" />
 
             <TextView
-                android:textColor="@color/grey2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="   + Thêm, sửa, xóa sinh viên"
+                android:text="@string/quan_ly_sv"
+                android:textAlignment="center"
+                android:textColor="@color/blue"
+                android:textSize="22dp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@id/imageView2"
+                android:text="@string/xem_danh_sach_sv"
+                android:textColor="@color/grey2"
                 android:textSize="20dp" />
 
             <TextView
-                android:textColor="@color/grey2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="   + Tìm kiếm sinh viên theo tên sinh viên"
+                android:text="@string/them_sua_xoa_sv"
+                android:textColor="@color/grey2"
                 android:textSize="20dp" />
+
             <TextView
-                android:textColor="@color/grey2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_toRightOf="@id/imageView2"
-                android:text="   + Lấy ảnh trong thư mục làm avata sinh viên "
+                android:text="@string/tim_kiem_sv"
+                android:textColor="@color/grey2"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginBottom="40dp"
+                android:layout_toRightOf="@id/imageView2"
+                android:text="@string/lay_anh"
+                android:textColor="@color/grey2"
                 android:textSize="20dp" />
-
 
 
         </LinearLayout>

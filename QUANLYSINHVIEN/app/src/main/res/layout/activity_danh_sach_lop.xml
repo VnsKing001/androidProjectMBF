@@ -41,11 +41,12 @@
         android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-           android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             tools:context=".MainActivity">
 
 
@@ -53,44 +54,42 @@
                 android:id="@+id/fbDangXuatLop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
                 android:src="@drawable/icondangxuat"
                 app:backgroundTint="#FF0000"
-                android:layout_marginBottom="12dp"
-                android:layout_gravity="bottom|center_horizontal"
-                app:fabSize="mini"/>
+                app:fabSize="mini" />
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fbHomeLop"
-                android:src="@drawable/ic_home"
-                app:fabSize="mini"
-                android:layout_marginBottom="12dp"
-                app:backgroundTint="#002AFF"
-                android:layout_gravity="bottom|center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/ic_home"
+                app:backgroundTint="#002AFF"
+                app:fabSize="mini" />
+
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fbThemLop"
-                app:backgroundTint="#6FFC01"
-                android:layout_gravity="bottom|center_horizontal"
-                android:src="@drawable/adduser64"
-                app:fabSize="mini"
-                android:layout_marginBottom="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-               />
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/adduser64"
+                app:backgroundTint="#6FFC01"
+                app:fabSize="mini" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_add"
-                android:layout_marginBottom="12dp"
                 android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:src="@drawable/ic_add"
                 app:backgroundTint="@color/blue"
-                app:fabSize="normal"
-               />
+                app:fabSize="normal" />
 
 
         </FrameLayout>
