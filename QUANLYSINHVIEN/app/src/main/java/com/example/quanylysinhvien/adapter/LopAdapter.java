@@ -178,13 +178,13 @@ public class LopAdapter extends BaseAdapter implements Filterable {
                             Lop lop1 = new Lop(maLop, tenLop);
                             //Update vào sql
                             if (lopDao.update(lop1)) {
-                                Toast.makeText(context, "Sửa thành công!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Edit Success!", Toast.LENGTH_SHORT).show();
                                 dslop.clear();
                                 dslop.addAll(lopDao.getAll());
                                 notifyDataSetChanged();
                                 dialog.dismiss();
                             } else {
-                                Toast.makeText(context, "Sửa thất bại!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, "Edit failed!", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception ex) {
                             ex.printStackTrace();
@@ -219,7 +219,7 @@ public class LopAdapter extends BaseAdapter implements Filterable {
                 Button btnHuy = dialog.findViewById(R.id.btn_no);
                 final ProgressBar progressBar = dialog.findViewById(R.id.progress_loadconfirm);
                 progressBar.setVisibility(View.INVISIBLE);
-                txt_Massage.setText("Bạn có chắc chắn xóa lớp " + lop.getMaLop() + " không ? \nCảnh báo nếu bạn xóa lớp " + lop.getMaLop() + " thì hệ thống sẽ xóa toàn bộ sinh viên trong lớp  " + lop.getMaLop());
+                txt_Massage.setText("Are you sure to delete " + lop.getMaLop() + "? \nCảnh báo nếu bạn xóa lớp " + lop.getMaLop() + " thì hệ thống sẽ xóa toàn bộ sinh viên trong lớp  " + lop.getMaLop());
                 final Lop lop = dslop.get(position);
                 btnXoa.setOnClickListener(new View.OnClickListener() {
                     @Override
