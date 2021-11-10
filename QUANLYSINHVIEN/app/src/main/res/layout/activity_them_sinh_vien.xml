@@ -22,13 +22,14 @@
         android:background="@drawable/backdround_layout"
         android:gravity="center"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
-            android:text="THÊM SINH VIÊN"
+            android:text="ADD STUDENT"
             android:textColor="#000000"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -45,7 +46,7 @@
                 android:src="@drawable/avatamacdinh" />
             <Button
                 android:id="@+id/btnReviewThem"
-                android:text="Xem ảnh"
+                android:text="Set Image"
                 android:layout_marginLeft="5dp"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/border"
@@ -67,7 +68,7 @@
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"
             android:inputType="textVisiblePassword"
-            android:hint="Nhập mã sinh viên" />
+            android:hint="Enter Student ID" />
 
         <EditText
             android:id="@+id/txtTenSV"
@@ -79,7 +80,7 @@
             android:textColorHint="@color/black2"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"
-            android:hint="Nhập tên sinh viên" />
+            android:hint="Enter Student Name" />
 
         <EditText
             android:id="@+id/txtemail"
@@ -92,7 +93,7 @@
             android:textColorHint="@color/black2"
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"
-            android:hint="Nhập email"
+            android:hint="Enter Email"
             android:inputType="textVisiblePassword" />
         <EditText
             android:id="@+id/txtHinh"
@@ -105,7 +106,7 @@
             android:textColor="@color/black"
             android:layout_marginBottom="10dp"
             android:scrollHorizontally="true"
-            android:hint="Nhập tên hình ảnh"
+            android:hint="Student Info"
             android:inputType="textVisiblePassword" />
 
 
@@ -133,7 +134,7 @@
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:background="@drawable/border"
-                android:text="Thêm mới" />
+                android:text="ADD NEW" />
 
             <Button
                 android:id="@+id/btnDanhSach"
@@ -145,7 +146,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/border"
-                android:text="Xem danh sách" />
+                android:text="LIST STUDENT" />
         </LinearLayout>
 
     </LinearLayout>

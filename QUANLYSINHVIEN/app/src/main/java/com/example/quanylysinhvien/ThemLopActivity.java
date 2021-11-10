@@ -19,16 +19,35 @@ import com.example.quanylysinhvien.model.Lop;
 import java.util.ArrayList;
 
 public class ThemLopActivity extends AppCompatActivity {
-    LinearLayout linearLayout,linearLayout2;
+    /**
+     * LinearLayout
+     */
+    LinearLayout linearLayout, linearLayout2;
+
+    /**
+     * Animation
+     */
     Animation animation;
+
+    /**
+     * EditText
+     */
     EditText edtMalop, edtTenLop;
+
+    /**
+     * Button
+     */
     Button btnLuu, btnXemLop;
+
+    /**
+     * LopDao
+     */
     LopDao lopDao;
+
+    /**
+     * ArrayList<Lop>
+     */
     ArrayList<Lop> dsLop = new ArrayList<>();
-
-
-
-
 
     @SuppressLint("ResourceType")
     @Override
@@ -36,23 +55,26 @@ public class ThemLopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_them_lop);
         linearLayout = findViewById(R.id.linearLayoutThemLop);
-        linearLayout2=findViewById(R.id.linearLayout);
+        linearLayout2 = findViewById(R.id.linearLayout);
         btnLuu = findViewById(R.id.btnThêmLop);
         edtMalop = findViewById(R.id.edtMaLop);
         edtTenLop = findViewById(R.id.edtTenLop);
         btnXemLop = findViewById(R.id.btnXemlop);
-        if(ManagerActivity.isDark==true) {
+
+        // checking theme
+        if (ManagerActivity.isDark == true) {
             // dark theme is on
             linearLayout2.setBackgroundColor(getResources().getColor(R.color.black));
-        }
-        else
-        {
+        } else {
             // light theme is on
             linearLayout2.setBackgroundDrawable(getResources().getDrawable(R.drawable.backdound_app));
         }
+
         animation = AnimationUtils.loadAnimation(this, R.anim.uptodowndiagonal);
         linearLayout.setAnimation(animation);
         lopDao = new LopDao(ThemLopActivity.this);
+
+        // Class List redirect Event Listener
         btnXemLop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,21 +83,25 @@ public class ThemLopActivity extends AppCompatActivity {
             }
         });
 
+        // save Listener
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String malop = edtMalop.getText().toString();
                 String tenlop = edtTenLop.getText().toString();
+
+                // validate form
                 if (malop.equals("")) {
-                    Toast.makeText(ThemLopActivity.this, "Mã lớp không được để trống", Toast.LENGTH_SHORT).show();
-                }else if(tenlop.equals("")){
-                    Toast.makeText(ThemLopActivity.this, "Tên không được để trống", Toast.LENGTH_SHORT).show();
-                }else {
+                    Toast.makeText(ThemLopActivity.this, "Class ID is required", Toast.LENGTH_SHORT).show();
+                } else if (tenlop.equals("")) {
+                    Toast.makeText(ThemLopActivity.this, "Class Name is required", Toast.LENGTH_SHORT).show();
+                } else {
                     Lop lop = new Lop(malop, tenlop);
-                    if (lopDao.insert(lop)) {
-                        Toast.makeText(ThemLopActivity.this, "Them thanh cong", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(ThemLopActivity.this, "Them that bai", Toast.LENGTH_SHORT).show();
+                    if (lopDao.insert(lop)) {// add success
+                        Toast.makeText(ThemLopActivity.this, "ADD SUCCESS!", Toast.LENGTH_SHORT).show();
+                    } else {// add failed
+                        Toast.makeText(ThemLopActivity.this, "ADD FAILED! TRY AGAIN!", Toast.LENGTH_SHORT).show();
                     }
                 }
 

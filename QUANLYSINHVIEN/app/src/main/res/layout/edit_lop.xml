@@ -25,7 +25,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:scrollHorizontally="true"
-            android:text="SỬA LỚP"
+            android:text="EDIT CLASS"
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -39,10 +39,10 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/backdroung_edt"
-            android:padding="12dp"
             android:ems="10"
-            android:hint="Nhập mã lớp"
+            android:hint="Enter Class ID"
             android:inputType="textPersonName"
+            android:padding="12dp"
             android:textColorHint="#00BCD4" />
 
         <EditText
@@ -53,10 +53,10 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/backdroung_edt"
-            android:padding="12dp"
             android:ems="10"
-            android:hint="Nhập tên lớp"
+            android:hint="Enter new Class Name"
             android:inputType="textPersonName"
+            android:padding="12dp"
             android:textColorHint="#00BCD4" />
 
         <LinearLayout
@@ -77,7 +77,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_ui"
-                android:text="CẬP NHẬT"
+                android:text="EDIT"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
 
@@ -88,7 +88,7 @@
                 android:layout_marginBottom="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_ui"
-                android:text="HỦY"
+                android:text="CANCEL"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold" />
         </LinearLayout>

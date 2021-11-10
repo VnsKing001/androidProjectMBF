@@ -27,25 +27,72 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    /**
+     * ListView
+     */
     ListView listView;
+
+    /**
+     * EditText
+     */
     EditText edtSearch;
+
+    /**
+     * static ArrayList<SinhVien>
+     */
     public static ArrayList<SinhVien> ds;
+
+    /**
+     * ArrayList<SinhVien>
+     */
     ArrayList<SinhVien> timKiem = new ArrayList<>();
 
+    /**
+     * SinhVienAdapter
+     */
     SinhVienAdapter sinhVienAdapter;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fbadd;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fab;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fbHome;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fabDangXuat;
+
+    /**
+     * SinhVienDao
+     */
     SinhVienDao sinhVienDao;
+
+    /**
+     * Boolean
+     */
     Boolean isOpen = false;
 
+    /**
+     * RelativeLayout
+     */
     RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         relativeLayout=findViewById(R.id.relativel_layout);
         edtSearch = findViewById(R.id.edtsearch);
         listView = findViewById(R.id.listSV);
@@ -53,15 +100,16 @@ public class MainActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         fbHome = findViewById(R.id.fbHome);
         fabDangXuat = findViewById(R.id.fbDangXuat);
+
+        // check theme
         if(ManagerActivity.isDark==true) {
             // dark theme is on
             relativeLayout.setBackgroundColor(getResources().getColor(R.color.black));
-        }
-        else
-        {
+        } else {
             // light theme is on
             relativeLayout.setBackgroundColor(getResources().getColor(R.color.white));
         }
+
         ds = new ArrayList<>();
         sinhVienDao = new SinhVienDao(MainActivity.this);
         if (DanhSachLopActivity.xetList == true) {
@@ -127,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * openMenu
+     */
     private void openMenu() {
         isOpen = true;
         fbHome.animate().translationY(-getResources().getDimension(R.dimen.stan_60));
@@ -134,6 +185,9 @@ public class MainActivity extends AppCompatActivity {
         fabDangXuat.animate().translationY(-getResources().getDimension(R.dimen.stan_155));
     }
 
+    /**
+     * closeMenu
+     */
     private void closeMenu() {
         isOpen = false;
         fbHome.animate().translationY(0);

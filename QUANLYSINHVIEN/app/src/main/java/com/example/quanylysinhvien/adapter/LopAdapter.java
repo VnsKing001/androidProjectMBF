@@ -33,16 +33,49 @@ import java.util.ArrayList;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class LopAdapter extends BaseAdapter implements Filterable {
+
+    /**
+     * context
+     */
     Activity context;
+
+    /**
+     * layout
+     */
     int layout;
+
+    /**
+     * dslop
+     */
     ArrayList<Lop> dslop;
+
+    /**
+     * dsSortLop
+     */
     ArrayList<Lop> dsSortLop;
+
+    /**
+     * lopFilter
+     */
     private Filter lopFilter;
+
+    /**
+     * lopDao
+     */
     LopDao lopDao;
-    // ArrayList<SinhVien>dssv=new ArrayList<>();
+
+    /**
+     * animation
+     */
     Animation animation;
 
-
+    /**
+     * Constructor
+     *
+     * @param context
+     * @param layout
+     * @param dslop
+     */
     public LopAdapter(Activity context, int layout, ArrayList<Lop> dslop) {
         this.context = context;
         this.layout = layout;

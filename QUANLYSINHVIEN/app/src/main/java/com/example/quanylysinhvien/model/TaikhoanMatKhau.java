@@ -3,11 +3,23 @@ package com.example.quanylysinhvien.model;
 import java.io.Serializable;
 
 public class TaikhoanMatKhau implements Serializable {
+    /**
+     * tenTaiKhoan, matKhau
+     */
     private String tenTaiKhoan, matKhau;
 
+    /**
+     * Constructor
+     */
     public TaikhoanMatKhau() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param tenTaiKhoan
+     * @param matKhau
+     */
     public TaikhoanMatKhau(String tenTaiKhoan, String matKhau) {
         this.tenTaiKhoan = tenTaiKhoan;
         this.matKhau = matKhau;

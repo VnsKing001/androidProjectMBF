@@ -29,7 +29,7 @@
            android:layout_marginTop="40dp"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
-           android:text="THÊM LỚP" />
+           android:text="ADD CLASS" />
        <EditText
            android:id="@+id/edtMaLop"
            android:layout_width="match_parent"
@@ -41,7 +41,7 @@
            android:padding="12dp"
            android:layout_marginBottom="10dp"
            android:inputType="textPersonName"
-           android:hint="Nhập mã lớp" />
+           android:hint="Enter Class ID" />
 
        <EditText
            android:id="@+id/edtTenLop"
@@ -53,7 +53,7 @@
            android:scrollHorizontally="true"
            android:padding="12dp"
            android:inputType="textPersonName"
-           android:hint="Nhập tên lớp" />
+           android:hint="Enter Class Name" />
 
        <LinearLayout
            android:layout_marginTop="20dp"
@@ -72,7 +72,7 @@
                android:background="@drawable/border"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="Lưu" />
+               android:text="SAVE" />
 
            <Button
                android:id="@+id/btnXemlop"
@@ -84,7 +84,7 @@
                android:layout_weight="1"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="Xem lớp" />
+               android:text="Class List" />
        </LinearLayout>
 
    </LinearLayout>

@@ -26,33 +26,78 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 
 public class DanhSachLopActivity extends AppCompatActivity {
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fbadd;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fab;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fbHome;
+
+    /**
+     * FloatingActionButton
+     */
     FloatingActionButton fabDangXuat;
+
+    /**
+     * TextView
+     */
     TextView tvanhien;
+
+    /**
+     * EditText
+     */
     EditText edtSearch;
 
+    /**
+     * ArrayList<Lop>
+     */
     ArrayList<Lop> dsLop = new ArrayList<>();
     ArrayList<Lop> timKiem = new ArrayList<>();
 
+    /**
+     * ArrayList<SinhVien>
+     */
     ArrayList<SinhVien> svlist;
+
+    /**
+     * static ArrayList<SinhVien>
+     */
     static ArrayList<SinhVien> svlistDuocLoc;
+
+    /**
+     * static boolean xetList
+     */
     public static boolean xetList = true;
 
+    /**
+     * ListView, LopAdapter
+     */
     ListView listView;
     LopAdapter lopAdapter;
 
+    /**
+     * DAO
+     */
     LopDao lopDao;
     SinhVienDao sinhVienDao;
 
     Boolean isOpen = false;
     RelativeLayout relativeLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danh_sach_lop);
-        relativeLayout=findViewById(R.id.relativel_layout);
+        relativeLayout = findViewById(R.id.relativel_layout);
         listView = findViewById(R.id.listviewLop);
         fbadd = findViewById(R.id.fbThemLop);
         tvanhien = findViewById(R.id.tvAnHien);
@@ -60,11 +105,14 @@ public class DanhSachLopActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab1);
         fabDangXuat = findViewById(R.id.fbDangXuatLop);
         edtSearch = findViewById(R.id.edtserchLop);
-        if(ManagerActivity.isDark==true) {
+
+        // check theme
+        if (ManagerActivity.isDark == true) {
             relativeLayout.setBackgroundColor(getResources().getColor(R.color.black));
         } else {
             relativeLayout.setBackgroundColor(getResources().getColor(R.color.white));
         }
+
         fbAction();
         lopDao = new LopDao(DanhSachLopActivity.this);
 
@@ -88,6 +136,7 @@ public class DanhSachLopActivity extends AppCompatActivity {
             listView.setVisibility(View.VISIBLE);
             tvanhien.setVisibility(View.INVISIBLE);
         }
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -142,6 +191,9 @@ public class DanhSachLopActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * fbAction
+     */
     private void fbAction() {
         fabDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +220,9 @@ public class DanhSachLopActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * openMenu
+     */
     private void openMenu() {
         isOpen = true;
         fbHome.animate().translationY(-getResources().getDimension(R.dimen.stan_60));
@@ -175,10 +230,14 @@ public class DanhSachLopActivity extends AppCompatActivity {
         fabDangXuat.animate().translationY(-getResources().getDimension(R.dimen.stan_155));
     }
 
+    /**
+     * closeMenu
+     */
     private void closeMenu() {
         isOpen = false;
         fbHome.animate().translationY(0);
         fbadd.animate().translationY(0);
         fabDangXuat.animate().translationY(0);
     }
+
 }

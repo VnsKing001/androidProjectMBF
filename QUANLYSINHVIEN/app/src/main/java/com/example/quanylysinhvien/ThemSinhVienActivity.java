@@ -20,23 +20,60 @@ import com.example.quanylysinhvien.dao.LopDao;
 import com.example.quanylysinhvien.dao.SinhVienDao;
 import com.example.quanylysinhvien.model.Lop;
 import com.example.quanylysinhvien.model.SinhVien;
+
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ThemSinhVienActivity extends AppCompatActivity {
+    /**
+     * EditText
+     */
     EditText edtTensv, edtMasv, edtemail, edtHinh;
-    Spinner spMaLop;
-    Button btnThem,  btnDanhSach, btnReview;
 
+    /**
+     * Spinner
+     */
+    Spinner spMaLop;
+
+    /**
+     * Button
+     */
+    Button btnThem, btnDanhSach, btnReview;
+
+    /**
+     * SinhVienDao
+     */
     SinhVienDao daoSach;
+
+    /**
+     * LopDao
+     */
     LopDao lsDao;
 
+    /**
+     * linearLayout
+     */
     LinearLayout linearLayout;
+
+    /**
+     * CircleImageView
+     */
     CircleImageView imgAvata;
+
+    /**
+     * ArrayList<Lop>
+     */
     ArrayList<Lop> lopList = new ArrayList<>();
+
+    /**
+     * Animation
+     */
     Animation animation;
 
+    /**
+     * RelativeLayout
+     */
     RelativeLayout relativeLayout;
 
 
@@ -62,17 +99,18 @@ public class ThemSinhVienActivity extends AppCompatActivity {
         animation = AnimationUtils.loadAnimation(this, R.anim.uptodowndiagonal);
         linearLayout.setAnimation(animation);
 
-        relativeLayout=findViewById(R.id.relativel_layout);
-        if(ManagerActivity.isDark==true) {
+        relativeLayout = findViewById(R.id.relativel_layout);
+
+        // checking dark mode
+        if (ManagerActivity.isDark == true) {
             // dark theme is on
             relativeLayout.setBackgroundColor(getResources().getColor(R.color.black));
-        }
-        else
-        {
+        } else {
             // light theme is on
             relativeLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.backdound_app));
         }
 
+        // SinhVien List redirect Event Listener
         btnDanhSach.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,20 +118,26 @@ public class ThemSinhVienActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
+        // get LopList and configure Adapter
         lopList = lsDao.getAll();
         ArrayAdapter adapter = new ArrayAdapter(ThemSinhVienActivity.this, android.R.layout.simple_spinner_item, lopList);
         spMaLop.setAdapter(adapter);
+
+        // get Image Resource Event Listener
         btnReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              if(edtHinh.getText().toString().equalsIgnoreCase("")){
-                  imgAvata.setImageResource(R.drawable.avatamacdinh);
-              }else if(edtHinh.getText().toString()!=""){
-                  int id_hinh = ((Activity)ThemSinhVienActivity.this).getResources().getIdentifier(edtHinh.getText().toString(), "drawable", ((Activity) ThemSinhVienActivity.this).getPackageName());
-                  imgAvata.setImageResource(id_hinh);
+                if (edtHinh.getText().toString().equalsIgnoreCase("")) {
+                    imgAvata.setImageResource(R.drawable.avatamacdinh);
+                } else if (edtHinh.getText().toString() != "") {
+                    int id_hinh = ((Activity) ThemSinhVienActivity.this).getResources().getIdentifier(edtHinh.getText().toString(), "drawable", ((Activity) ThemSinhVienActivity.this).getPackageName());
+                    imgAvata.setImageResource(id_hinh);
                 }
             }
         });
+
+        // form format validation Event Listener
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,30 +149,30 @@ public class ThemSinhVienActivity extends AppCompatActivity {
                     String hinh = edtHinh.getText().toString();
                     Lop ls = (Lop) spMaLop.getSelectedItem();
                     String maLop = ls.getMaLop();
-                    if (ma.equals("")) {
-                        Toast.makeText(ThemSinhVienActivity.this, "Mã sinh viên không được để trống", Toast.LENGTH_LONG).show();
-                    } else if (ten.equals("")) {
-                        Toast.makeText(ThemSinhVienActivity.this, "Tên sinh viên không được để trống", Toast.LENGTH_LONG).show();
-                    } else if (ten.matches((".*[0-9].*"))) {
-                        Toast.makeText(ThemSinhVienActivity.this, "Tên chỉ được nhập chuỗi", Toast.LENGTH_LONG).show();
-                    } else if (email.equals("")) {
-                        Toast.makeText(ThemSinhVienActivity.this, "Email sinh viên không được để trống", Toast.LENGTH_LONG).show();
-                    } else if (email.matches(pattern) == false) {
-                        Toast.makeText(ThemSinhVienActivity.this, "Bạn nhập sai định dạng email", Toast.LENGTH_SHORT).show();
-                    } else if (hinh.equals("")) {
+                    if (ma.equals("")) {// check empty student Id
+                        Toast.makeText(ThemSinhVienActivity.this, "Student ID is required", Toast.LENGTH_LONG).show();
+                    } else if (ten.equals("")) {// check empty student Name
+                        Toast.makeText(ThemSinhVienActivity.this, "Student Name is required", Toast.LENGTH_LONG).show();
+                    } else if (ten.matches((".*[0-9].*"))) {// check valid Student Name
+                        Toast.makeText(ThemSinhVienActivity.this, "Name is not valid", Toast.LENGTH_LONG).show();
+                    } else if (email.equals("")) {// check empty Email
+                        Toast.makeText(ThemSinhVienActivity.this, "Email is required", Toast.LENGTH_LONG).show();
+                    } else if (email.matches(pattern) == false) {// check valid Email
+                        Toast.makeText(ThemSinhVienActivity.this, "Email is not valid", Toast.LENGTH_SHORT).show();
+                    } else if (hinh.equals("")) {// check image is not selected -> set default image
                         edtHinh.setText("avatamacdinh");
                     } else {
                         SinhVien s = new SinhVien(ma, ten, email, hinh, maLop);
-                        if (daoSach.insert(s)) {
-                            Toast.makeText(ThemSinhVienActivity.this, "Thêm thành công", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(ThemSinhVienActivity.this, " Không được trùng mã sinh viên ", Toast.LENGTH_LONG).show();
+                        if (daoSach.insert(s)) {// success
+                            Toast.makeText(ThemSinhVienActivity.this, "Add Student is Success!", Toast.LENGTH_LONG).show();
+                        } else {// failed
+                            Toast.makeText(ThemSinhVienActivity.this, "Student Id is contained, try another!", Toast.LENGTH_LONG).show();
                         }
                     }
 
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(ThemSinhVienActivity.this, "Lỗi : " + e, Toast.LENGTH_LONG).show();
+                    Toast.makeText(ThemSinhVienActivity.this, "An Error has Accours, try again!" + e, Toast.LENGTH_LONG).show();
                 }
 
             }

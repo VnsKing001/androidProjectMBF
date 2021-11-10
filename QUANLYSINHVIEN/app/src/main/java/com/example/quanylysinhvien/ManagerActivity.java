@@ -36,14 +36,46 @@ import com.example.quanylysinhvien.loginandregisteractivity.ChangePasswordActivi
 import com.example.quanylysinhvien.loginandregisteractivity.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
-public class ManagerActivity extends AppCompatActivity  {
+public class ManagerActivity extends AppCompatActivity {
+
+    /**
+     * ImageView
+     */
     ImageView btnLop, btnSinhVien, btnInFo, btnDangXuat;
+
+    /**
+     * Animation
+     */
     Animation animation;
+
+    /**
+     * GridLayout
+     */
     GridLayout gridLayout;
+
+    /**
+     * TextView
+     */
     TextView tv1, tv2, tv3, tvInFo;
+
+    /**
+     * ImageView
+     */
     ImageView imageViewMenu;
+
+    /**
+     * intent
+     */
     Intent intent;
+
+    /**
+     * static boolean isDark = false;
+     */
     public static boolean isDark = false;
+
+    /**
+     * LinearLayout
+     */
     LinearLayout linearLayout;
 
 
@@ -51,18 +83,19 @@ public class ManagerActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
-        linearLayout=findViewById(R.id.linearLayout);
+        linearLayout = findViewById(R.id.linearLayout);
         isDark = getThemeStatePref();
-        if(isDark) {
+
+        // check theme
+        if (isDark) {
             // dark theme is on
             linearLayout.setBackgroundColor(getResources().getColor(R.color.black));
-        }
-        else
-        {
+        } else {
             // light theme is on
             linearLayout.setBackgroundColor(getResources().getColor(R.color.white));
 
         }
+
         btnLop = findViewById(R.id.btnLop);
         gridLayout = findViewById(R.id.girdviewManager);
         btnSinhVien = findViewById(R.id.btnsinhvien);
@@ -72,47 +105,46 @@ public class ManagerActivity extends AppCompatActivity  {
         btnInFo = findViewById(R.id.btninfo);
         tvInFo = findViewById(R.id.tvinfo);
         btnDangXuat = findViewById(R.id.imageViewdangxuat);
-        imageViewMenu=findViewById(R.id.imageViewMenu);
-       imageViewMenu.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               ImageView view=(ImageView)v;
-               final PopupMenu popupMenu=new PopupMenu(ManagerActivity.this,view);
-               popupMenu.getMenuInflater().inflate(R.menu.drawer_menu,popupMenu.getMenu());
-               popupMenu.show();
-               popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                  @Override
-                  public boolean onMenuItemClick(MenuItem item) {
+        imageViewMenu = findViewById(R.id.imageViewMenu);
+        imageViewMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView view = (ImageView) v;
+                final PopupMenu popupMenu = new PopupMenu(ManagerActivity.this, view);
+                popupMenu.getMenuInflater().inflate(R.menu.drawer_menu, popupMenu.getMenu());
+                popupMenu.show();
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
 
-                      switch (item.getItemId()){
-                          case R.id.menuDoimatkhau:
-                              intent=new Intent(ManagerActivity.this, ChangePasswordActivity.class);
-                              startActivity(intent);
-                              overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
-                              break;
-                          case R.id.menuDoiTheme:
-                              isDark = !isDark ;
-                              if (isDark) {
-                                  linearLayout.setBackgroundColor(getResources().getColor(R.color.black));
-                              }
-                              else {
-                                  linearLayout.setBackgroundColor(getResources().getColor(R.color.white));
-                              }
-                              saveThemeStatePref(isDark);
-                              break;
-                          case R.id.menuDangXuat:
-                               intent=new Intent(ManagerActivity.this,LoginActivity.class);
-                              startActivity(intent);
-                              overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
-                              break;
-                      }
-                      return true;
-                  }
-              });
+                        switch (item.getItemId()) {
+                            case R.id.menuDoimatkhau:
+                                intent = new Intent(ManagerActivity.this, ChangePasswordActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
+                                break;
+                            case R.id.menuDoiTheme:
+                                isDark = !isDark;
+                                if (isDark) {
+                                    linearLayout.setBackgroundColor(getResources().getColor(R.color.black));
+                                } else {
+                                    linearLayout.setBackgroundColor(getResources().getColor(R.color.white));
+                                }
+                                saveThemeStatePref(isDark);
+                                break;
+                            case R.id.menuDangXuat:
+                                intent = new Intent(ManagerActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
+                                break;
+                        }
+                        return true;
+                    }
+                });
 
-           }
+            }
 
-       });
+        });
 
 
         animation = AnimationUtils.loadAnimation(ManagerActivity.this, R.anim.bottom_top);
@@ -124,6 +156,7 @@ public class ManagerActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
         tvInFo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +172,7 @@ public class ManagerActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
         btnDangXuat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,6 +180,7 @@ public class ManagerActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
         btnLop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +188,7 @@ public class ManagerActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
         btnSinhVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +197,7 @@ public class ManagerActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,6 +205,7 @@ public class ManagerActivity extends AppCompatActivity  {
                 overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
             }
         });
+
         tv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,18 +216,28 @@ public class ManagerActivity extends AppCompatActivity  {
     }
 
 
+    /**
+     * saveThemeStatePref
+     *
+     * @param isDark
+     */
     private void saveThemeStatePref(boolean isDark) {
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPref2",MODE_PRIVATE);
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPref2", MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean("isDark",isDark);
+        editor.putBoolean("isDark", isDark);
         editor.commit();
     }
 
-    private boolean getThemeStatePref () {
+    /**
+     * getThemeStatePref
+     *
+     * @return
+     */
+    private boolean getThemeStatePref() {
 
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPref2",MODE_PRIVATE);
-        boolean isDark = pref.getBoolean("isDark",false) ;
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPref2", MODE_PRIVATE);
+        boolean isDark = pref.getBoolean("isDark", false);
         return isDark;
 
     }

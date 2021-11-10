@@ -57,12 +57,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SinhVienAdapter extends BaseAdapter implements Filterable {
     Context context;
 
-    ArrayList<SinhVien>  ds=new ArrayList<>();;
+    ArrayList<SinhVien> ds = new ArrayList<>();
+    ;
     ArrayList<SinhVien> dsSortSinhVien;
     private Filter svFilter;
     LopDao lopDao;
     SinhVienDao sinhVienDao;
     ArrayList<Lop> dsmaLop = new ArrayList<>();
+
     public SinhVienAdapter(Context context, ArrayList<SinhVien> ds) {
         this.context = context;
         this.ds = ds;
@@ -173,7 +175,7 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View v) {
                 lopDao = new LopDao(context);
-                final Dialog dialog=new Dialog(context);
+                final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.sua_sinhvien);
 
                 dialog.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
@@ -189,9 +191,9 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                 final EditText ethinh = dialog.findViewById(R.id.edhinh);
                 final CircleImageView imgAvata = dialog.findViewById(R.id.imageView_avata_edit);
                 final Spinner spMalop = dialog.findViewById(R.id.spEdmalop);
-                Button btnReview = dialog.findViewById(R.id.btnReviewSuaSV);
+//                Button btnReview = dialog.findViewById(R.id.btnReviewSuaSV);
                 final Button btnSua = dialog.findViewById(R.id.btnEdSua);
-                final Button btnLai = dialog.findViewById(R.id.btnNhapLai);
+//                final Button btnLai = dialog.findViewById(R.id.btnNhapLai);
                 final Button btnHuy = dialog.findViewById(R.id.btnHuyeditSV);
                 dsmaLop = lopDao.getAll();
                 final ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, dsmaLop);
@@ -216,17 +218,17 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
 
 
                 //Sửa dữ liệu
-                btnReview.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(ethinh.getText().toString().equalsIgnoreCase("")){
-                            imgAvata.setImageResource(R.drawable.avatamacdinh);
-                        }else if(ethinh.getText().toString()!=""){
-                            int id_hinh = ((Activity)context).getResources().getIdentifier(ethinh.getText().toString(), "drawable", ((Activity) context).getPackageName());
-                            imgAvata.setImageResource(id_hinh);
-                        }
-                    }
-                });
+//                btnReview.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        if(ethinh.getText().toString().equalsIgnoreCase("")){
+//                            imgAvata.setImageResource(R.drawable.avatamacdinh);
+//                        }else if(ethinh.getText().toString()!=""){
+//                            int id_hinh = ((Activity)context).getResources().getIdentifier(ethinh.getText().toString(), "drawable", ((Activity) context).getPackageName());
+//                            imgAvata.setImageResource(id_hinh);
+//                        }
+//                    }
+//                });
                 btnSua.setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -267,25 +269,6 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                     }
                 });
 
-                btnLai.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        etMasv.setText(s.getMaSv());
-                        etTensv.setText(s.getTenSv());
-                        etemail.setText(s.getEmail());
-                        int giatri = -1;
-                        for (int i = 0; i < dsmaLop.size(); i++) {
-                            if (dsmaLop.get(i).toString().equalsIgnoreCase(s.getMaSv())) {
-                                giatri = i;
-                                break;
-                            }
-                        }
-                        spMalop.setSelection(giatri);
-
-                    }
-                });
-
-
                 btnHuy.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -294,7 +277,6 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                 });
                 dialog.show();
 
-
             }
         });
 
@@ -302,8 +284,8 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View v) {
 
-                sinhVienDao=new SinhVienDao(context);
-                final Dialog dialog=new Dialog(context);
+                sinhVienDao = new SinhVienDao(context);
+                final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.dialog_xoa);
                 dialog.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
 
@@ -312,11 +294,11 @@ public class SinhVienAdapter extends BaseAdapter implements Filterable {
                 }
 
                 final TextView txt_Massage = dialog.findViewById(R.id.txt_Titleconfirm);
-                Button btnXoa=dialog.findViewById(R.id.btn_yes);
-                Button btnHuy=dialog.findViewById(R.id.btn_no);
+                Button btnXoa = dialog.findViewById(R.id.btn_yes);
+                Button btnHuy = dialog.findViewById(R.id.btn_no);
                 final ProgressBar progressBar = dialog.findViewById(R.id.progress_loadconfirm);
                 progressBar.setVisibility(View.INVISIBLE);
-                txt_Massage.setText("Are you sure to delete "+ s.getMaSv()+"? ");
+                txt_Massage.setText("Are you sure to delete " + s.getMaSv() + "? ");
                 final SinhVien sinhVien = ds.get(position);
                 btnXoa.setOnClickListener(new View.OnClickListener() {
                     @Override
