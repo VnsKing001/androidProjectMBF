@@ -15,8 +15,19 @@ import com.example.quanylysinhvien.loginandregisteractivity.LoginActivity;
 import com.example.quanylysinhvien.R;
 
 public class IntroOneActivity extends AppCompatActivity {
+    /**
+     * ImageView
+     */
     ImageView logo, imageViewOngVang,bacgroundApp;
+
+    /**
+     * TextView
+     */
     TextView tvAppName;
+
+    /**
+     * Animation
+     */
     Animation leftoright, righttoleft, topBottom,aniOngVang,anibg;
 
 

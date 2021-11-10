@@ -20,14 +20,41 @@ import com.example.quanylysinhvien.model.TaikhoanMatKhau;
 import java.util.ArrayList;
 
 public class RegisterActivity extends AppCompatActivity {
+    /**
+     * RelativeLayout
+     */
     private RelativeLayout rlayout;
+
+    /**
+     * Animation
+     */
     private Animation animation;
+
+    /**
+     * EditText
+     */
     EditText txtRegTk, txtRegMk, txtRegMkk;
+
+    /**
+     * Button
+     */
     Button btDangKy, btNhapLai;
+
+    /**
+     * ArrayList<TaikhoanMatKhau>
+     */
     ArrayList<TaikhoanMatKhau> listTk = new ArrayList<>();
+
+    /**
+     * DaoTaiKhoan
+     */
     DaoTaiKhoan tkDao;
 
+    /**
+     * RelativeLayout
+     */
     RelativeLayout relativel_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +78,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 listTk = tkDao.getALl();
 
+                // check pwd and rePwd
                 if (mk.matches(mkk)) {
                     xetMk = true;
                 } else {
@@ -65,16 +93,17 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }
 
+                // form validate
                 if (tk.isEmpty()) {
-                    Toast.makeText(RegisterActivity.this, "Tên tài khoản không được để trống!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Username is required", Toast.LENGTH_SHORT).show();
                 } else {
                     if (mk.isEmpty() || mkk.isEmpty()) {
-                        Toast.makeText(RegisterActivity.this, "Mật khẩu không được để trống!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Password is required", Toast.LENGTH_SHORT).show();
                     } else {
                         if (xetTk == true) {
                             if (xetMk == true) {
                                 tkDao.Them(tkmk);
-                                Toast.makeText(RegisterActivity.this, "Thêm tài khoản thành công!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Add account is success!", Toast.LENGTH_SHORT).show();
 
                                 Intent i = new Intent();
                                 i.putExtra("taikhoan",tk);
@@ -83,10 +112,10 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
 
                             } else {
-                                Toast.makeText(RegisterActivity.this, "Mật khẩu không khớp nhau!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Password and Repassword not the same!", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(RegisterActivity.this, "Tên tài khoản k được trùng!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Account is contained", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
@@ -95,6 +124,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * init Layout
+     */
     private void init() {
          relativel_layout=findViewById(R.id.relativel_layout);
         txtRegTk = findViewById(R.id.edtRegUser);

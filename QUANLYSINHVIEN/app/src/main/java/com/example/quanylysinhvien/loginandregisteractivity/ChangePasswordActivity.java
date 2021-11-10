@@ -28,12 +28,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
     ArrayList<TaikhoanMatKhau> listTk = new ArrayList<>();
 
     RelativeLayout relativel_layout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
         init();
-        linearLayout=findViewById(R.id.linearLayoutchange);
+        linearLayout = findViewById(R.id.linearLayoutchange);
         animation = AnimationUtils.loadAnimation(this, R.anim.uptodowndiagonal);
         linearLayout.setAnimation(animation);
 
@@ -45,21 +46,20 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 String tk = txtCTk.getText().toString();
                 String mk = txtCpass.getText().toString();
                 String mkk = txtNewPass.getText().toString();
-                TaikhoanMatKhau tkmkMoi = new TaikhoanMatKhau(tk,mkk);
+                TaikhoanMatKhau tkmkMoi = new TaikhoanMatKhau(tk, mkk);
                 listTk = tkDao.getALl();
                 //Check tk, mk có khớp vs tk trong list k
                 for (int i = 0; i < listTk.size(); i++) {
                     TaikhoanMatKhau tkx = listTk.get(i);
-                    if (tkx.getTenTaiKhoan().matches(tk)&&tkx.getMatKhau().matches(mk)) {
+                    if (tkx.getTenTaiKhoan().matches(tk) && tkx.getMatKhau().matches(mk)) {
                         xetTk = true;
                         break;
                     }
                 }
-                if(mk.matches(mkk)){
-                    xetMk=false;
-                }
-                else {
-                    xetMk=true;
+                if (mk.matches(mkk)) {
+                    xetMk = false;
+                } else {
+                    xetMk = true;
                 }
                 if (tk.isEmpty()) {
                     Toast.makeText(ChangePasswordActivity.this, "Tên tài khoản không được để trống!", Toast.LENGTH_SHORT).show();
@@ -83,28 +83,30 @@ public class ChangePasswordActivity extends AppCompatActivity {
             }
         });
 
-        btNhapLai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                txtCTk.setText("");
-                txtCpass.setText("");
-                txtNewPass.setText("");
-            }
-        });
+//        btNhapLai.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                txtCTk.setText("");
+//                txtCpass.setText("");
+//                txtNewPass.setText("");
+//            }
+//        });
     }
-    private void init(){
-        relativel_layout=findViewById(R.id.relativel_layout);
+
+    /**
+     * init Layout
+     */
+    private void init() {
+        relativel_layout = findViewById(R.id.relativel_layout);
         txtCTk = findViewById(R.id.edtCUser);
         txtCpass = findViewById(R.id.edtCPass);
         txtNewPass = findViewById(R.id.edtNewPass);
-        btChangePass  =findViewById(R.id.btnChange);
-        btNhapLai = findViewById(R.id.btnRelay);
-        if(ManagerActivity.isDark==true) {
+        btChangePass = findViewById(R.id.btnChange);
+//        btNhapLai = findViewById(R.id.btnRelay);
+        if (ManagerActivity.isDark == true) {
             // dark theme is on
             relativel_layout.setBackgroundColor(getResources().getColor(R.color.black));
-        }
-        else
-        {
+        } else {
             // light theme is on
             relativel_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.backdound_app));
         }

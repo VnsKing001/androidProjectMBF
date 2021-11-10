@@ -27,14 +27,44 @@ import com.example.quanylysinhvien.model.TaikhoanMatKhau;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
+    /**
+     * Button
+     */
     private Button btReg, btLogin;
+
+    /**
+     * EditText
+     */
     EditText edtTaiKhoan, edtMatKhau;
+
+    /**
+     * CheckBox
+     */
     CheckBox cbLuuThongTin;
+
+    /**
+     *     DaoTaiKhoan tkDao;
+     */
     DaoTaiKhoan tkDao;
+
+    /**
+     * ArrayList<TaikhoanMatKhau>
+     */
     ArrayList<TaikhoanMatKhau> listTK = new ArrayList<>();
+
+    /**
+     * LinearLayout
+     */
     LinearLayout linearLayout;
+
+    /**
+     * Animation
+     */
     Animation animation;
 
+    /**
+     * RelativeLayout
+     */
     RelativeLayout relativel_layout;
 
     @Override
@@ -62,12 +92,12 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
                 if (xetTk == true) {
-                    Toast.makeText(LoginActivity.this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Login Success!", Toast.LENGTH_SHORT).show();
                     luuThongTin();
                     startActivity(new Intent(LoginActivity.this, ManagerActivity.class));
                     overridePendingTransition(R.anim.ani_intent, R.anim.ani_intenexit);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Tên tài khoản hoặc mật khẩu không chính xác!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Username or password is not corrected!", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -82,6 +112,9 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * luuThongTin
+     */
     private void luuThongTin() {
         SharedPreferences sharedPreferences = getSharedPreferences("sinhvien", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -98,6 +131,9 @@ public class LoginActivity extends AppCompatActivity {
         editor.commit();
     }
 
+    /**
+     * layThongTin
+     */
     private void layThongTin() {
         SharedPreferences sharedPreferences = getSharedPreferences("sinhvien", MODE_PRIVATE);
 
@@ -114,6 +150,9 @@ public class LoginActivity extends AppCompatActivity {
         cbLuuThongTin.setChecked(check);
     }
 
+    /**
+     * init Layout
+     */
     private void init() {
         relativel_layout=findViewById(R.id.relativel_layout);
         edtTaiKhoan = findViewById(R.id.edtUserName);
@@ -132,6 +171,12 @@ public class LoginActivity extends AppCompatActivity {
             relativel_layout.setBackgroundDrawable(getResources().getDrawable(R.drawable.backdound_app));
         }
     }
+
+    /**
+     * getThemeStatePref
+     *
+     * @return
+     */
     private boolean getThemeStatePref () {
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPref2",MODE_PRIVATE);
         boolean isDark = pref.getBoolean("isDark",false) ;

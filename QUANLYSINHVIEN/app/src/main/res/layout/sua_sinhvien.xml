@@ -34,14 +34,14 @@
             android:layout_marginBottom="7dp"
             android:layout_marginRight="5dp"
             android:src="@drawable/avatamacdinh" />
-        <Button
-            android:id="@+id/btnReviewSuaSV"
-            android:text="@string/xem_anh"
-            android:background="@drawable/border"
-            android:textColor="#FFFFFF"
-            android:layout_marginLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+<!--        <Button-->
+<!--            android:id="@+id/btnReviewSuaSV"-->
+<!--            android:text="@string/xem_anh"-->
+<!--            android:background="@drawable/border"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
     </LinearLayout>
 
 

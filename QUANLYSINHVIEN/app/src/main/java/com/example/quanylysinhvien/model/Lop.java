@@ -3,9 +3,22 @@ package com.example.quanylysinhvien.model;
 import androidx.annotation.NonNull;
 
 public class Lop {
+    /**
+     * maLop
+     */
     private String maLop;
+
+    /**
+     * tenLop
+     */
     private String tenLop;
 
+    /**
+     * Constructor
+     *
+     * @param maLop
+     * @param tenLop
+     */
     public Lop(String maLop, String tenLop) {
         this.maLop = maLop;
         this.tenLop = tenLop;

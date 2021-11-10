@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
-        android:background="@drawable/logotoolbar"
+        android:background="@drawable/students"
         android:layout_marginLeft="5dp"
         android:layout_width="40dp"
         android:layout_height="40dp"/>
     <TextView
-        android:text="QUẢN LÝ SINH VIÊN"
+        android:text="Student Management"
         android:textSize="20dp"
         android:textStyle="bold"
         android:layout_marginLeft="20dp"

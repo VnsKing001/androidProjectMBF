@@ -24,10 +24,10 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:src="@drawable/iconapp"/>
+            android:src="@drawable/main_app_ic"/>
 
         <TextView
             android:id="@+id/tvAppName"
@@ -36,10 +36,11 @@
             android:layout_alignBottom="@+id/logo"
             android:layout_marginLeft="1dp"
             android:gravity="start"
-            android:text="Student MGA"
+            android:textStyle="bold"
+            android:text="STUDENT MANAGEMENT"
             android:textAlignment="textStart"
-            android:textColor="@color/blue"
-            android:textSize="50sp" />
+            android:textColor="@color/white"
+            android:textSize="30sp" />
 
 
     </LinearLayout>
