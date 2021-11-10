@@ -11,13 +11,27 @@ import com.example.quanylysinhvien.model.TaikhoanMatKhau;
 import java.util.ArrayList;
 
 public class DaoTaiKhoan {
+
+    /**
+     * DBHeplper
+     */
     DBHeplper dtbRegister;
 
+    /**
+     * DaoTaiKhoan
+     *
+     * @param context
+     */
     public DaoTaiKhoan(Context context) {
 
         dtbRegister = new DBHeplper(context);
     }
 
+    /**
+     * getALl
+     *
+     * @return
+     */
     public ArrayList<TaikhoanMatKhau> getALl() {
         ArrayList<TaikhoanMatKhau> listTK = new ArrayList<>();
         SQLiteDatabase dtb = dtbRegister.getReadableDatabase();
@@ -38,6 +52,13 @@ public class DaoTaiKhoan {
         cs.close();
         return listTK;
     }
+
+    /**
+     * Them
+     *
+     * @param tk
+     * @return
+     */
     public boolean Them(TaikhoanMatKhau tk) {
         SQLiteDatabase db = dtbRegister.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -49,6 +70,13 @@ public class DaoTaiKhoan {
         }
         return true;
     }
+
+    /**
+     * doiMk
+     *
+     * @param tk
+     * @return
+     */
     public boolean doiMk(TaikhoanMatKhau tk) {
         SQLiteDatabase db = dtbRegister.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -59,4 +87,5 @@ public class DaoTaiKhoan {
         }
         return true;
     }
+
 }

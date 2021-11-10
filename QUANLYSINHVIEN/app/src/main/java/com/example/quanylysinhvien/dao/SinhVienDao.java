@@ -13,10 +13,26 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 public class SinhVienDao {
+
+    /**
+     * dbHelper
+     */
     DBHeplper dbHelper;
+
+    /**
+     * SinhVienDao
+     *
+     * @param context
+     */
     public SinhVienDao(Context context) {
         dbHelper = new DBHeplper(context);
     }
+
+    /**
+     * getALL
+     *
+     * @return
+     */
     public ArrayList<SinhVien> getALL() {
         ArrayList<SinhVien> ds = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -40,6 +56,12 @@ public class SinhVienDao {
         return ds;
     }
 
+    /**
+     * insert
+     *
+     * @param s
+     * @return
+     */
     public boolean insert(SinhVien s) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -55,6 +77,12 @@ public class SinhVienDao {
         return true;
     }
 
+    /**
+     * update
+     *
+     * @param s
+     * @return
+     */
     public boolean update(SinhVien s) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -73,6 +101,12 @@ public class SinhVienDao {
         return true;
     }
 
+    /**
+     * delete
+     *
+     * @param s
+     * @return
+     */
     public boolean delete(SinhVien s) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
