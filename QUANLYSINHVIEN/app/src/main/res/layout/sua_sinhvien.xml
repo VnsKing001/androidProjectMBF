@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:gravity="center_horizontal"
-        android:text="SỬA SINH VIÊN"
+        android:text="@string/sua_sv"
         android:textSize="25sp"
         android:textStyle="bold" />
     <LinearLayout
@@ -36,7 +36,7 @@
             android:src="@drawable/avatamacdinh" />
         <Button
             android:id="@+id/btnReviewSuaSV"
-            android:text="Xem ảnh"
+            android:text="@string/xem_anh"
             android:background="@drawable/border"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="5dp"
@@ -55,7 +55,7 @@
         android:textColorHint="@color/grey2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập mã sinh viên" />
+        android:hint="@string/nhap_ma_sv" />
 
     <EditText
         android:id="@+id/edTenSvedit"
@@ -66,7 +66,7 @@
         android:textColorHint="@color/grey2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên sinh viên" />
+        android:hint="@string/nhap_ten_sv" />
 
     <EditText
         android:id="@+id/edemail"
@@ -77,7 +77,7 @@
         android:textColorHint="@color/grey2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập email" />
+        android:hint="@string/nhap_email" />
     <EditText
         android:id="@+id/edhinh"
         android:background="@drawable/backdroung_edt"
@@ -87,7 +87,7 @@
         android:textColorHint="@color/grey2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nhập tên hình" />
+        android:hint="@string/nhap_ten_hinh" />
     <Spinner
         android:id="@+id/spEdmalop"
         android:layout_width="match_parent"
@@ -109,16 +109,16 @@
             android:textColor="#FFFFFF"
             android:background="@drawable/border"
             android:layout_marginRight="5dp"
-            android:text="Sửa" />
-        <Button
-            android:id="@+id/btnNhapLai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/border"
-            android:layout_marginRight="5dp"
-            android:text="Sửa" />
+            android:text="@string/sua" />
+<!--        <Button-->
+<!--            android:id="@+id/btnNhapLai"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:background="@drawable/border"-->
+<!--            android:layout_marginRight="5dp"-->
+<!--            android:text="@string/sua" />-->
 
         <Button
             android:id="@+id/btnHuyeditSV"
@@ -128,7 +128,7 @@
             android:textColor="#FFFFFF"
             android:background="@drawable/border"
             android:layout_weight="1"
-            android:text="Hủy" />
+            android:text="@string/huy" />
 
     </LinearLayout>
 

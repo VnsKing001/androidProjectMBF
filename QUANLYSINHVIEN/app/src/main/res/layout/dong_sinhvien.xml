@@ -40,7 +40,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mã       :  "
+                        android:text="@string/student_id"
                         android:textColor="#000000"
                         android:textSize="18dp"
                         android:textStyle="bold" />
@@ -59,7 +59,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Tên      :  "
+                        android:text="@string/name"
                         android:textColor="#000000"
                         android:textSize="16dp"
                         android:textStyle="bold" />
@@ -97,7 +97,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mã lớp :  "
+                        android:text="@string/class_id"
                         android:textColor="#000000"
                         android:textSize="16dp"
                         android:textStyle="bold" />
